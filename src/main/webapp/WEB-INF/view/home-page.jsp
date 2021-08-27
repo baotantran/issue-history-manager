@@ -7,7 +7,8 @@
 <title>Bug Tracking Home Page</title>
 </head>
 <body>
-	<h3>Welcome to Bug Tracking App</h3>
+	<h3>Home</h3>
 
+	<a href=""></a>
 </body>
 </html>

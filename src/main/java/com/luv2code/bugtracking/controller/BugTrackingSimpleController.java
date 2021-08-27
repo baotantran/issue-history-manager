@@ -12,4 +12,10 @@ public class BugTrackingSimpleController {
 		return "home-page";
 	}
 	
+	@RequestMapping("/list")
+	public String listAllBug() {
+		
+		return null;
+	}
+	
 }
