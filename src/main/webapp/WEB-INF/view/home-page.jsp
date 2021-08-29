@@ -9,6 +9,6 @@
 <body>
 	<h3>Home</h3>
 
-	<a href=""></a>
+	<a href="${pageContext.request.contextPath}/list">Bug Report</a>
 </body>
 </html>

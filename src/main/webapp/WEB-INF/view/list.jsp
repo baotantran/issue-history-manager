@@ -10,6 +10,10 @@
 </head>
 <body>
 
+	<input type="button" value="Add New Bug" onclick="window.location.href='showFormForAdd'; return false;">
+
+	<br><br>
+
 	<table>
 		<tr>
 			<th>Bug Summary</th>

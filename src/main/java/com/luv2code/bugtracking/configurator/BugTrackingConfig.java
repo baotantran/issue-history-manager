@@ -41,8 +41,8 @@ public class BugTrackingConfig {
 		
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		
-		viewResolver.setPrefix("/WEB-INF/view/");
-		viewResolver.setSuffix(".jsp");
+		viewResolver.setPrefix(env.getProperty("viewResolver.prefix"));
+		viewResolver.setSuffix(env.getProperty("viewResolver.suffix"));
 		
 		return viewResolver;
 	}
@@ -53,7 +53,7 @@ public class BugTrackingConfig {
 		// create connection pool
 		ComboPooledDataSource myDataSource = new ComboPooledDataSource();
 
-		// set the jdbc driver
+		// set the jdbc driver 
 		try {
 			myDataSource.setDriverClass("com.mysql.jdbc.Driver");		
 		}
@@ -64,7 +64,7 @@ public class BugTrackingConfig {
 		// for sanity's sake, let's log url and user ... just to make sure we are reading the data
 		logger.info("jdbc.url=" + env.getProperty("jdbc.url"));
 		logger.info("jdbc.user=" + env.getProperty("jdbc.user"));
-				
+				 
 		// set database connection props
 		myDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
 		myDataSource.setUser(env.getProperty("jdbc.user"));

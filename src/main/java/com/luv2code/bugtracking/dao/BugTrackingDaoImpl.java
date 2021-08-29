@@ -31,5 +31,39 @@ public class BugTrackingDaoImpl implements BugTrackingDao {
 		return list;
 	}
 
+
+	@Override
+	@Transactional
+	public BugInformation getBugById(int id) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		BugInformation bugInformation = currentSession.get(BugInformation.class, id);
+		
+		return bugInformation;
+	}
+
+
+	@Override
+	@Transactional
+	public void saveBug(BugInformation bug) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		currentSession.save(bug);
+		
+	}
+
+
+	@Override
+	@Transactional
+	public void updateBug(BugInformation bug) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		currentSession.saveOrUpdate(bug);
+		
+	}
+
 	
 }

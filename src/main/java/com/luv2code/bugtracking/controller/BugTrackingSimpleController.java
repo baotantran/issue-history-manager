@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.luv2code.bugtracking.dao.BugTrackingDao;
@@ -30,6 +32,26 @@ public class BugTrackingSimpleController {
 		theModel.addAttribute("bugList", list);
 		
 		return "list";
+	}
+	
+	@RequestMapping("/showFormForAdd")
+	public String showFormForAdd(Model theModel) {
+		
+		// Empty object for input data from user 
+		BugInformation bugInformation = new BugInformation();
+		
+		// Pass the empty object to model to be pass to JSP
+		theModel.addAttribute("bugInformation", bugInformation);
+		
+		return "bug-save-form";
+	}
+	
+	@PostMapping("/saveBugInformation")
+	public String saveBugInformation(@ModelAttribute("bugInformation") BugInformation bugInformation) {
+		
+		bugTrackingDao.saveBug(bugInformation);
+		
+		return "redirect:/list";
 	}
 	
 }
