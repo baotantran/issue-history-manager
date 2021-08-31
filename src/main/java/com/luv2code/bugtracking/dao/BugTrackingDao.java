@@ -11,6 +11,4 @@ public interface BugTrackingDao {
 	public BugInformation getBugById(int id);
 	
 	public void saveBug(BugInformation bug);
-	
-	public void updateBug(BugInformation bug);
 }

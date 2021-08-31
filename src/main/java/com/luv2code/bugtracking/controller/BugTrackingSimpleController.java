@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.luv2code.bugtracking.dao.BugTrackingDao;
 import com.luv2code.bugtracking.entity.BugInformation;
@@ -53,5 +54,18 @@ public class BugTrackingSimpleController {
 		
 		return "redirect:/list";
 	}
+		
+	@RequestMapping("/updateBugInformation")
+	public String showFormForUpdate(@RequestParam("bugId") int bugId, Model theModel) {
+		
+		BugInformation bugInformation = bugTrackingDao.getBugById(bugId);
+		
+		theModel.addAttribute("bugInformation", bugInformation);
+		
+		return "bug-save-form";
+		
+	}
+		
+	
 	
 }

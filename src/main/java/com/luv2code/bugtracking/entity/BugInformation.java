@@ -14,7 +14,7 @@ public class BugInformation {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
-	private int Id;
+	private int id;
 	
 	@Column(name="bug_summary")
 	private String bugSummary;
@@ -25,12 +25,12 @@ public class BugInformation {
 	@Column(name="bug_resolver")
 	private String bugResolver;
 
-	public int getId() {
-		return Id;
+	public int getid() {
+		return id;
 	}
 
-	public void setId(int id) {
-		Id = id;
+	public void setid(int id) {
+		this.id = id;
 	}
 
 	public String getBugSummary() {

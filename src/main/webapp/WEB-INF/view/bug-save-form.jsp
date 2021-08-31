@@ -11,7 +11,7 @@
 <body>
 
 	<form:form action="saveBugInformation" modelAttribute="bugInformation" method="POST">
-	
+	<form:hidden path="id"/>
 		<table>
 			<tr>
 				<td><label>Bug Summary</label></td>

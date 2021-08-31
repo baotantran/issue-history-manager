@@ -21,10 +21,14 @@
 			<th>Bug Resolver</th>
 		<tr>
 		<c:forEach var="bug" items="${bugList}">
+		<c:url var="update" value="/updateBugInformation">
+			<c:param name="bugId" value="${bug.id}"></c:param>
+		</c:url>
 		 	<tr>
 		 		<td>${bug.bugSummary}</td>
 		 		<td>${bug.bugDetail}</td>
 		 		<td>${bug.bugResolver}</td>
+		 		<td><a href="${update}">Update</a></td>
 		 	</tr>
 		</c:forEach>
 		
