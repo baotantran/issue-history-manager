@@ -24,11 +24,15 @@
 		<c:url var="update" value="/updateBugInformation">
 			<c:param name="bugId" value="${bug.id}"></c:param>
 		</c:url>
+		<c:url var="delete" value="/deleteBugInformation">
+			<c:param name="bugId" value="${bug.id}"></c:param>
+		</c:url>
 		 	<tr>
 		 		<td>${bug.bugSummary}</td>
 		 		<td>${bug.bugDetail}</td>
 		 		<td>${bug.bugResolver}</td>
 		 		<td><a href="${update}">Update</a></td>
+		 		<td><a href="${delete}">Delete</a></td>
 		 	</tr>
 		</c:forEach>
 		

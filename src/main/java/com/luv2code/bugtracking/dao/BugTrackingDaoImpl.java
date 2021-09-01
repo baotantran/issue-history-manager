@@ -51,4 +51,17 @@ public class BugTrackingDaoImpl implements BugTrackingDao {
 
 	}
 
+	@Override
+	@Transactional
+	public void deleteBug(int id) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Query query = currentSession.createQuery("delete from BugInformation where id=:bugId");
+		
+		query.setParameter("bugId", id);
+		
+		query.executeUpdate();
+	}
+
 }

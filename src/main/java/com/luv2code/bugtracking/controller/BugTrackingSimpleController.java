@@ -65,6 +65,14 @@ public class BugTrackingSimpleController {
 		return "bug-save-form";
 		
 	}
+	
+	@RequestMapping("/deleteBugInformation")
+	public String deleteBugInformation(@RequestParam("bugId") int bugId) {
+		
+		bugTrackingDao.deleteBug(bugId);
+		
+		return "redirect:/list";
+	}
 		
 	
 	
