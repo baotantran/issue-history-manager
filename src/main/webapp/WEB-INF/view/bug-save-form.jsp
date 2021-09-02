@@ -19,7 +19,9 @@
 			</tr>
 			<tr>
 				<td><label>Bug Detail</label></td>
-				<td><form:input path="bugDetail"/></td>
+				<td><form:input path="bugDetail"/>
+					<form:errors path="bugDetail" style="color:red"></form:errors>
+				</td>
 			</tr>
 			<tr>
 				<td><label>Bug Resolver</label></td>

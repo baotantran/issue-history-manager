@@ -2,9 +2,12 @@ package com.luv2code.bugtracking.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,11 +51,15 @@ public class BugTrackingSimpleController {
 	}
 	
 	@PostMapping("/saveBugInformation")
-	public String saveBugInformation(@ModelAttribute("bugInformation") BugInformation bugInformation) {
-		
+	public String saveBugInformation(@Valid @ModelAttribute("bugInformation") BugInformation bugInformation,
+										BindingResult theBindingResult) {
+		if(theBindingResult.hasErrors()) {
+			return "bug-save-form";
+		} else {
 		bugTrackingDao.saveBug(bugInformation);
 		
 		return "redirect:/list";
+		}
 	}
 		
 	@RequestMapping("/updateBugInformation")

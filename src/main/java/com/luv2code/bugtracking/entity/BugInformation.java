@@ -1,11 +1,13 @@
 package com.luv2code.bugtracking.entity;
 
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="bug_information")
@@ -20,6 +22,7 @@ public class BugInformation {
 	private String bugSummary;
 	
 	@Column(name="bug_detail")
+	@NotNull(message="is required")
 	private String bugDetail;
 	
 	@Column(name="bug_resolver")
