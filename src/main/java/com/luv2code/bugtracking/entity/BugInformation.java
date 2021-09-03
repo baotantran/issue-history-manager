@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="bug_information")
@@ -23,6 +24,7 @@ public class BugInformation {
 	
 	@Column(name="bug_detail")
 	@NotNull(message="is required")
+	@Size(min=1,message ="is required")
 	private String bugDetail;
 	
 	@Column(name="bug_resolver")
