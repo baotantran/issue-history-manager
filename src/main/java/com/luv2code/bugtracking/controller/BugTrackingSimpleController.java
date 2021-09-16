@@ -81,10 +81,6 @@ public class BugTrackingSimpleController {
 		return "redirect:/list";
 	}
 		
-	@RequestMapping("/showMyLoginPage")
-	public String showLoginPage() {
-		return null;
-	}
 	
 	
 }
