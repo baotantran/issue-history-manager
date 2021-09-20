@@ -24,9 +24,9 @@ public class BugTrackingSecurityConfig extends WebSecurityConfigurerAdapter {
 		UserBuilder users = User.withDefaultPasswordEncoder();
 		
 		auth.inMemoryAuthentication()
-			.withUser(users.username("Bao").roles("Manager").password("12345"))
-			.withUser(users.username("Andy").roles("Manager").password("12345"))
-			.withUser(users.username("Hua").roles("Employee").password("12345"));
+			.withUser(users.username("Bao").roles("MANAGER").password("12345"))
+			.withUser(users.username("Andy").roles("ADMIN").password("12345"))
+			.withUser(users.username("Hua").roles("EMPLOYEE").password("12345"));
 		
 		//auth.jdbcAuthentication().dataSource(securityDataSource);
 	}
@@ -34,13 +34,15 @@ public class BugTrackingSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-		http.authorizeRequests() // restrict access based on the HttpservletRequest
-				.anyRequest().authenticated()	// Any request come in must be authenticate
+		http.authorizeRequests() 
+				.antMatchers("/admin").hasRole("ADMIN")
 			.and()
 			.formLogin() // customize form login process
 				.loginPage("/showMyLoginPage") // logging page
 				.loginProcessingUrl("/authenticateTheUser") // login form should POST data to this URL for processing
 				.permitAll() // Any one can see the login page without logging in first
+			.and()
+			.exceptionHandling().accessDeniedPage("/accessDeniedPage")
 			.and()
 				.logout()
 				.permitAll(); // add log out and any one can see

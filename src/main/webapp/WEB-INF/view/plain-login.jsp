@@ -31,10 +31,10 @@
 </h3>
 	<form action="${pageContext.request.contextPath}/authenticateTheUser" method="POST">
 	<c:if test="${param.error != null}">
-		<i class="failed"> username/password is incorrect</i>
+		<i class="failed">Your username/password is incorrect</i>
 	</c:if>
 	<c:if test="${param.logout != null}">
-		<i class="success"> log out succesfully</i>
+		<i class="success"> Log out succesfully</i>
 	</c:if>
 	<input type="hidden" 
 		name="${_csrf.parameterName}"

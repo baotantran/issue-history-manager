@@ -10,4 +10,9 @@ public class BugTrackingLoginController {
 	public String showLoginPage() {
 		return "plain-login";
 	}
+	
+	@RequestMapping("/accessDeniedPage")
+	public String showDeniedPage() {
+		return "denied-page";
+	}
 }

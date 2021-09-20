@@ -80,6 +80,11 @@ public class BugTrackingSimpleController {
 		
 		return "redirect:/list";
 	}
+	
+	@RequestMapping("/admin")
+	public String showAdminPage() {
+		return "admin-page";
+	}
 		
 	
 	
