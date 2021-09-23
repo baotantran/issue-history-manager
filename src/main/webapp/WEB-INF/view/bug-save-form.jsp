@@ -31,6 +31,8 @@
 		<input type="submit" value="Save">
 	
 	</form:form>
+	<br><br>
+	<a href="${pageContext.request.contextPath}/">Back to home page</a>
 
 </body>
 </html>

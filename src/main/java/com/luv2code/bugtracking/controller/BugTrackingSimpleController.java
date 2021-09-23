@@ -82,7 +82,12 @@ public class BugTrackingSimpleController {
 	}
 	
 	@RequestMapping("/admin")
-	public String showAdminPage() {
+	public String showAdminPage(Model theModel) {
+		
+		List<BugInformation> bugList = bugTrackingDao.getAllBug();
+		
+		theModel.addAttribute("bugList", bugList);
+		
 		return "admin-page";
 	}
 		

@@ -32,13 +32,17 @@
 		 		<td>${bug.bugDetail}</td>
 		 		<td>${bug.bugResolver}</td>
 		 		<td><a href="${update}">Update</a></td>
-		 		<td><a href="${delete}"
-		 				onclick="if(!(confirm('Are you sure you want to delete this item?'))) return false">Delete</a></td>
 		 	</tr>
 		</c:forEach>
 		
 		
 	</table>
+	
+	<br>
+	
+	<a href="${pageContext.request.contextPath}/">Back to home page</a>
+	
+	<br><br>
 	
 	<form:form action="${pageContext.request.contextPath}/logout" method="POST">
 		<input type="submit" value="Logout">
