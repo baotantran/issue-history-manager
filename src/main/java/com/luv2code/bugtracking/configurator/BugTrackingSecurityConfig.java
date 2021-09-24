@@ -36,6 +36,7 @@ public class BugTrackingSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		http.authorizeRequests() 
 				.antMatchers("/admin").hasRole("ADMIN")
+				.antMatchers("/manager").hasRole("MANAGER")
 			.and()
 			.formLogin() // customize form login process
 				.loginPage("/showMyLoginPage") // logging page
